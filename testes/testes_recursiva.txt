@@ -1,0 +1,11 @@
+# Casos de teste para linguagem recursiva
+# Formato: ACEITA <palavra> | REJEITA <palavra>
+
+ACEITA
+ACEITA abc
+ACEITA aabbcc
+ACEITA aaabbbccc
+REJEITA a
+REJEITA ab
+REJEITA aab
+REJEITA aabbc

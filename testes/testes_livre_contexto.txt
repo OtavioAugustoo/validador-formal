@@ -1,0 +1,11 @@
+# Casos de teste para linguagem livre de contexto
+# Formato: ACEITA <palavra> | REJEITA <palavra>
+
+ACEITA
+ACEITA ab
+ACEITA aabb
+ACEITA aaabbb
+REJEITA a
+REJEITA b
+REJEITA aab
+REJEITA abb

@@ -1,0 +1,9 @@
+# Casos de teste para linguagem regular
+# Formato: ACEITA <palavra> | REJEITA <palavra>
+# (linha vazia = palavra vazia)
+
+ACEITA
+ACEITA a
+ACEITA ab
+REJEITA b
+REJEITA ba
