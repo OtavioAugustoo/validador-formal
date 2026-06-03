@@ -1,9 +1,8 @@
-# Casos de teste para linguagem regular
-# Formato: ACEITA <palavra> | REJEITA <palavra>
-# (linha vazia = palavra vazia)
-
-ACEITA
-ACEITA a
-ACEITA ab
-REJEITA b
-REJEITA ba
+# testes pro validador de CPF  (formato ddd.ddd.ddd-dd)
+# ACEITA = cadeia valida, REJEITA = invalida
+ACEITA 123.456.789-00
+ACEITA 000.000.000-00
+ACEITA 999.999.999-99
+REJEITA 12.345.678-90
+REJEITA 123.456.789-000
+REJEITA 123456789-00

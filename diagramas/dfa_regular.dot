@@ -1,0 +1,49 @@
+digraph DFA_CPF {
+    label="DFA -- Reconhecedor de CPF (ddd.ddd.ddd-dd)";
+    labelloc=top;
+    labeljust=center;
+    fontname="Helvetica";
+    fontsize=13;
+    rankdir=LR;
+    nodesep=0.5;
+    ranksep=0.6;
+
+    node [shape=circle, fontname="Helvetica", fontsize=10, fixedsize=true, width=0.65];
+    edge [fontname="Helvetica", fontsize=9];
+
+    // seta inicial
+    ini [style=invis, shape=point, width=0, height=0];
+
+    // unico estado de aceitacao
+    q14 [shape=doublecircle, style=filled, fillcolor="#cce5ff", label="q14"];
+
+    // estado morto (qualquer entrada invalida chega aqui)
+    qerro [shape=circle, style=filled, fillcolor="#ffcccc", label="qerro", fontsize=9];
+
+    ini -> q0;
+
+    // caminho valido: ddd.ddd.ddd-dd
+    q0  -> q1  [label="0-9"];
+    q1  -> q2  [label="0-9"];
+    q2  -> q3  [label="0-9"];
+    q3  -> q4  [label="."];
+    q4  -> q5  [label="0-9"];
+    q5  -> q6  [label="0-9"];
+    q6  -> q7  [label="0-9"];
+    q7  -> q8  [label="."];
+    q8  -> q9  [label="0-9"];
+    q9  -> q10 [label="0-9"];
+    q10 -> q11 [label="0-9"];
+    q11 -> q12 [label="-"];
+    q12 -> q13 [label="0-9"];
+    q13 -> q14 [label="0-9"];
+
+    // entradas invalidas -> estado morto (representado com tracejado)
+    edge [style=dashed, color="#aaaaaa", fontcolor="#aaaaaa"];
+    q0  -> qerro [label="!0-9"];
+    q3  -> qerro [label="!."];
+    q7  -> qerro [label="!."];
+    q11 -> qerro [label="!-"];
+    q14 -> qerro [label="*"];
+    qerro -> qerro [label="*"];
+}

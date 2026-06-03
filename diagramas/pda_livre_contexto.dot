@@ -1,0 +1,35 @@
+digraph PDA_LLC {
+    label="PDA -- Parenteses, Colchetes e Chaves Balanceados\nnotacao: simbolo , topo / push   (eps = transicao vazia)";
+    labelloc=top;
+    labeljust=center;
+    fontname="Helvetica";
+    fontsize=12;
+    rankdir=LR;
+    nodesep=1.5;
+
+    node [shape=circle, fontname="Helvetica", fontsize=11, fixedsize=true, width=0.85];
+    edge [fontname="Helvetica", fontsize=9];
+
+    // seta inicial
+    ini [style=invis, shape=point, width=0, height=0];
+
+    // estado de aceitacao
+    qf [shape=doublecircle, style=filled, fillcolor="#cce5ff", label="qf"];
+
+    // estado de rejeicao
+    qerro [shape=circle, style=filled, fillcolor="#ffcccc", label="qerro"];
+
+    ini -> q0;
+
+    // abertura: empilha o simbolo por cima do topo t (q0 -> q0)
+    q0 -> q0 [label="( , t / (t\n[ , t / [t\n{ , t / {t", headport=ne, tailport=ne];
+
+    // fechamento correto: desempilha (q0 -> q0)
+    q0 -> q0 [label=") , ( / eps\n] , [ / eps\n} , { / eps", headport=se, tailport=se];
+
+    // fechamento errado: vai pro qerro
+    q0 -> qerro [label="fechar sem\npar correto", style=dashed, color="#cc4444", fontcolor="#cc4444"];
+
+    // transicao epsilon: fim da entrada e pilha so tem Z -> aceita
+    q0 -> qf [label="eps , Z / Z", style=bold, color="#226622", fontcolor="#226622"];
+}

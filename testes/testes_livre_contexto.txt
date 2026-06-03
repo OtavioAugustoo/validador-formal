@@ -1,11 +1,8 @@
-# Casos de teste para linguagem livre de contexto
-# Formato: ACEITA <palavra> | REJEITA <palavra>
-
-ACEITA
-ACEITA ab
-ACEITA aabb
-ACEITA aaabbb
-REJEITA a
-REJEITA b
-REJEITA aab
-REJEITA abb
+# testes pro validador de parenteses/colchetes/chaves balanceados
+# letras e operadores sao ignorados, so os agrupadores contam
+ACEITA ((x+y)*z)
+ACEITA {[a+b]}
+ACEITA (a)
+REJEITA ((a+b)
+REJEITA {[x+y)}
+REJEITA ((())

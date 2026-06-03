@@ -1,11 +1,8 @@
-# Casos de teste para linguagem recursiva
-# Formato: ACEITA <palavra> | REJEITA <palavra>
-
-ACEITA
-ACEITA abc
-ACEITA aabbcc
-ACEITA aaabbbccc
-REJEITA a
-REJEITA ab
-REJEITA aab
-REJEITA aabbc
+# testes pro reconhecedor da linguagem L = {w#w | w em {0,1}*}
+# w pode ser vazio (cadeia "#" eh aceita)
+ACEITA 101#101
+ACEITA 0#0
+ACEITA 11#11
+REJEITA 101#100
+REJEITA 1#10
+REJEITA 0#1
